@@ -1,0 +1,24 @@
+name: Express Store Vendors CI & CD
+
+on:
+  push:
+    branches: [ dev-p1 ]
+  
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore ./ExpressStoreVendors.sln
+    - name: Build
+      run: dotnet build ./ExpressStoreVendors.sln
+    - name: Test
+      run: dotnet test ./ExpressStoreVendors.sln
