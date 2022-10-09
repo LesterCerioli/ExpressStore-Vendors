@@ -2,9 +2,9 @@ name: Express Store Vendors CI & CD
 
 on:
   push:
-    branches: [ dev-p1 ]
+    branches: [ qa/2 ]
   pull_request:
-    branches: [ main ]
+    branches: [ dev-p1 ]
 
 jobs:
   build:
